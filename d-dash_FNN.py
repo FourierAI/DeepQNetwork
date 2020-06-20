@@ -34,7 +34,7 @@ import copy
 
 # global variables
 
-EPISODES = 50
+EPISODES = 300
 # - DQL
 CH_HISTORY = 2                  # number of channel capacity history samples
 BATCH_SIZE = 1000
@@ -124,28 +124,6 @@ class ReplayMemory(object):
     def get_num_elements(self):
         return len(self.memory)
 
-    # """Replay memory based on a circular buffer (with overlapping)"""
-    # def __init__(self, capacity):
-    #     self.capacity = capacity
-    #     self.memory = [None] * self.capacity
-    #     self.position = 0
-    #     self.num_elements = 0
-
-    # def push(self, experience):
-    #     # if len(self.memory) < self.capacity:
-    #     #     self.memory.append(None)
-    #     self.memory[self.position] = experience
-    #     self.position = (self.position + 1) % self.capacity
-    #     if self.num_elements < self.capacity:
-    #         self.num_elements += 1
-
-    # def sample(self, batch_size):
-    #     return random.sample(self.memory, batch_size)
-
-    # def get_num_elements(self):
-    #     return self.num_elements
-
-
 class ActionSelector(object):
     """
     Select an action based on the exploration policy.
@@ -200,7 +178,7 @@ target_net.load_state_dict(policy_net.state_dict())
 target_net.eval()
 
 
-def simulate_dash(sss, bws, memory, phase):
+def simulate_dash(sss, bws, memory, phase, batch_size):
     # initialize parameters
     num_segments = sss.shape[0]  # number of segments
     num_qualities = sss.shape[1]  # number of quality levels
@@ -267,26 +245,26 @@ def simulate_dash(sss, bws, memory, phase):
             #############################
             # optimize the policy network
             #############################
-            if memory.get_num_elements() < BATCH_SIZE:
+            if memory.get_num_elements() < batch_size:
                 continue
-            experiences = memory.sample(BATCH_SIZE)
+            experiences = memory.sample(batch_size)
             state_batch = torch.stack([experiences[i].state.tensor()
-                                       for i in range(BATCH_SIZE)])
+                                       for i in range(batch_size)])
             next_state_batch = torch.stack([experiences[i].next_state.tensor()
-                                            for i in range(BATCH_SIZE)])
+                                            for i in range(batch_size)])
             action_batch = torch.tensor([experiences[i].action
-                                         for i in range(BATCH_SIZE)], dtype=torch.long)
+                                         for i in range(batch_size)], dtype=torch.long)
             reward_batch = torch.tensor([experiences[i].reward
-                                         for i in range(BATCH_SIZE)], dtype=torch.float32)
+                                         for i in range(batch_size)], dtype=torch.float32).cuda(device)
 
             # $Q(s_t, q_t|\bm{w}_t)$ in (13) in [1]
             # 1. policy_net generates a batch of Q(...) for all q values.
             # 2. columns of actions taken are selected using 'action_batch'.
-            state_action_values = policy_net(state_batch.cuda(device)).gather(1, action_batch.view(BATCH_SIZE, -1)).cuda(device)
+            state_action_values = policy_net(state_batch.cuda(device)).gather(1, action_batch.view(batch_size, -1).cuda(device))
 
             # $\max_{q}\hat{Q}(s_{t+1},q|\bar{\bm{w}}_t$ in (13) in [1]
             # TASK 2: Replace policy_net with target_net.
-            next_state_values = target_net(next_state_batch.cuda(device)).max(1)[0].detach()
+            next_state_values = target_net(next_state_batch.cuda(device)).max(1)[0].detach().cuda(device)
 
             # expected Q values
             expected_state_action_values = reward_batch + (LAMBDA * next_state_values)
