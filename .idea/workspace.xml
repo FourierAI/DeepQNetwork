@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2876fc53-ba4a-48a2-8c6b-810c7f7c71f4" name="Default Changelist" comment="" />
+    <list default="true" id="2876fc53-ba4a-48a2-8c6b-810c7f7c71f4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/d-dash.py" beforeDir="false" afterPath="$PROJECT_DIR$/d-dash.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/d-dash_FNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/d-dash_FNN.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/d-dash1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6360">
-              <caret line="271" column="28" selection-start-line="271" selection-start-column="28" selection-end-line="271" selection-end-column="28" />
+            <state relative-caret-position="2891">
+              <caret line="269" column="16" lean-forward="true" selection-start-line="269" selection-start-column="16" selection-end-line="269" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -55,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/d-dash_FNN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6696">
-              <caret line="287" column="12" selection-start-line="287" selection-start-column="12" selection-end-line="287" selection-end-column="12" />
+            <state relative-caret-position="301">
+              <caret line="278" column="52" lean-forward="true" selection-start-line="278" selection-start-column="52" selection-end-line="278" selection-end-column="52" />
               <folding>
                 <element signature="e#1074#1085#0" expanded="true" />
               </folding>
@@ -85,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/d-dash.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="297" column="45" selection-start-line="297" selection-start-column="45" selection-end-line="297" selection-end-column="45" />
+            <state relative-caret-position="242">
+              <caret line="187" column="16" selection-start-line="187" selection-start-column="16" selection-end-line="187" selection-end-column="16" />
               <folding>
                 <element signature="e#1067#1078#0" expanded="true" />
               </folding>
@@ -170,21 +175,26 @@
       <find>target_net</find>
       <find>policy_net</find>
       <find>optimizer_lstm</find>
+      <find>tensor</find>
     </findStrings>
     <replaceStrings>
       <replace>policy_net_lstm</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/d-dash.py" />
         <option value="$PROJECT_DIR$/d-dash (1).py" />
         <option value="$PROJECT_DIR$/environment.yaml" />
         <option value="$PROJECT_DIR$/d-dash_test.py" />
         <option value="$PROJECT_DIR$/d_dash_LSTM.py" />
         <option value="$USER_HOME$/Downloads/d-dash(2).py" />
+        <option value="$PROJECT_DIR$/d-dash.py" />
+        <option value="$PROJECT_DIR$/d-dash_FNN.py" />
       </list>
     </option>
   </component>
@@ -193,6 +203,7 @@
     <option name="width" value="1680" />
     <option name="height" value="947" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -391,12 +402,12 @@
       <workItem from="1591765719753" duration="14535000" />
       <workItem from="1591894516511" duration="14000" />
       <workItem from="1592533844008" duration="15049000" />
-      <workItem from="1592577069756" duration="486000" />
+      <workItem from="1592577069756" duration="4270000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78070000" />
+    <option name="totallyTimeSpent" value="81854000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -409,9 +420,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.61751825" visible="true" weight="0.15018316" />
-      <window_info id="Structure" order="1" sideWeight="0.38248175" side_tool="true" visible="true" weight="0.15018316" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6179002" visible="true" weight="0.15018316" />
+      <window_info id="Structure" order="1" sideWeight="0.38209984" side_tool="true" visible="true" weight="0.15018316" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32982457" />
@@ -423,14 +435,14 @@
       <window_info anchor="bottom" id="Docker" order="7" weight="0.32982457" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.501221" side_tool="true" visible="true" weight="0.19883041" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.498779" visible="true" weight="0.19883041" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.33394384" side_tool="true" visible="true" weight="0.32046783" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.498779" weight="0.19883041" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.4981685" weight="0.32982457" />
-      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.6666667" weight="0.32046783" />
+      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.66605616" visible="true" weight="0.32046783" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Remote Host" order="3" visible="true" weight="0.10927961" />
+      <window_info anchor="right" id="Remote Host" order="3" weight="0.10927961" />
       <window_info anchor="right" id="SciView" order="4" weight="0.32051283" />
       <window_info anchor="right" id="R Graphics" order="5" weight="0.32967034" />
       <window_info anchor="right" id="R Packages" order="6" />
@@ -629,29 +641,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Unconfirmed 583477.crdownload" />
-    <entry file="file://$PROJECT_DIR$/d-dash1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6360">
-          <caret line="271" column="28" selection-start-line="271" selection-start-column="28" selection-end-line="271" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/d_dash_LSTM.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7152">
           <caret line="307" column="41" selection-start-line="307" selection-start-column="41" selection-end-line="307" selection-end-column="41" />
           <folding>
             <element signature="e#160#171#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/d-dash_FNN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6696">
-          <caret line="287" column="12" selection-start-line="287" selection-start-column="12" selection-end-line="287" selection-end-column="12" />
-          <folding>
-            <element signature="e#1074#1085#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -700,10 +695,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/d-dash.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="297" column="45" selection-start-line="297" selection-start-column="45" selection-end-line="297" selection-end-column="45" />
+        <state relative-caret-position="242">
+          <caret line="187" column="16" selection-start-line="187" selection-start-column="16" selection-end-line="187" selection-end-column="16" />
           <folding>
             <element signature="e#1067#1078#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/d-dash1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2891">
+          <caret line="269" column="16" lean-forward="true" selection-start-line="269" selection-start-column="16" selection-end-line="269" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/d-dash_FNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="278" column="52" lean-forward="true" selection-start-line="278" selection-start-column="52" selection-end-line="278" selection-end-column="52" />
+          <folding>
+            <element signature="e#1074#1085#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -63,8 +63,8 @@ plt.ion()                       # turn interactive mode on
 # set device
 if torch.cuda.is_available():
     print('GPU is ok!')
-# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-device = torch.device("cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# device = torch.device("cpu")
 
 
 
@@ -93,7 +93,7 @@ class State:
                 axis=None
             ),
             dtype=torch.float32
-        )
+        ).cuda(device)
 
 
 @dataclass
@@ -153,7 +153,7 @@ class ActionSelector(object):
     def action(self, state):
         if self.greedy_policy:
             with torch.no_grad():
-                return int(torch.argmax(policy_net(state.tensor())))
+                return int(torch.argmax(policy_net(state.tensor().cuda(device))))
         else:
             sample = random.random()
             x = 20 * (self.steps_done / self.num_segments) - 6.  # scaled s.t. -6 < x < 14
@@ -161,7 +161,7 @@ class ActionSelector(object):
             # self.steps_done += 1
             if sample > eps_threshold:
                 with torch.no_grad():
-                    return int(torch.argmax(policy_net(state.tensor())))
+                    return int(torch.argmax(policy_net(state.tensor().cuda(device))))
             else:
                 return random.randrange(self.num_actions)
 
@@ -266,11 +266,11 @@ def simulate_dash(sss, bws, memory, phase):
             # $Q(s_t, q_t|\bm{w}_t)$ in (13) in [1]
             # 1. policy_net generates a batch of Q(...) for all q values.
             # 2. columns of actions taken are selected using 'action_batch'.
-            state_action_values = policy_net(state_batch).gather(1, action_batch.view(BATCH_SIZE, -1))
+            state_action_values = policy_net(state_batch.cuda(device)).gather(1, action_batch.view(BATCH_SIZE, -1)).cuda(device)
 
             # $\max_{q}\hat{Q}(s_{t+1},q|\bar{\bm{w}}_t$ in (13) in [1]
             # TASK 2: Replace policy_net with target_net.
-            next_state_values = target_net(next_state_batch).max(1)[0].detach()
+            next_state_values = target_net(next_state_batch.cuda(device)).max(1)[0].detach()
 
             # expected Q values
             expected_state_action_values = reward_batch + (LAMBDA * next_state_values)

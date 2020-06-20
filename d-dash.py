@@ -194,7 +194,7 @@ policy_net = torch.nn.Sequential(
 optimizer = torch.optim.Adam(policy_net.parameters(), lr=LEARNING_RATE)
 
 # policy_network based on RNN with 1 hidden layer
-policy_net_lstm = RNN()
+policy_net_lstm = RNN().to(device)
 optimizer_lstm = torch.optim.Adam(policy_net_lstm.parameters(), lr=LEARNING_RATE)
 
 # TODO: Implement target network
