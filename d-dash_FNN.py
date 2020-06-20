@@ -41,6 +41,7 @@ BATCH_SIZE = 1000
 EPS_START = 0.8
 EPS_END = 0.0
 LEARNING_RATE = 1e-4
+MEMORY_SIZE = 10000
 # - FFN
 N_I = 3 + CH_HISTORY            # input dimension (= state dimension)
 N_H1 = 128
@@ -64,8 +65,6 @@ plt.ion()                       # turn interactive mode on
 if torch.cuda.is_available():
     print('GPU is ok!')
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-# device = torch.device("cpu")
-
 
 
 @dataclass
@@ -107,27 +106,44 @@ class Experience:
 
 
 class ReplayMemory(object):
-    """Replay memory based on a circular buffer (with overlapping)"""
-
+    """Replay memory based on a list"""
     def __init__(self, capacity):
         self.capacity = capacity
-        self.memory = [None] * self.capacity
+        self.memory = []
         self.position = 0
-        self.num_elements = 0
 
     def push(self, experience):
-        # if len(self.memory) < self.capacity:
-        #     self.memory.append(None)
+        if len(self.memory) < self.capacity:
+            self.memory.append(None)
         self.memory[self.position] = experience
         self.position = (self.position + 1) % self.capacity
-        if self.num_elements < self.capacity:
-            self.num_elements += 1
 
     def sample(self, batch_size):
         return random.sample(self.memory, batch_size)
 
     def get_num_elements(self):
-        return self.num_elements
+        return len(self.memory)
+
+    # """Replay memory based on a circular buffer (with overlapping)"""
+    # def __init__(self, capacity):
+    #     self.capacity = capacity
+    #     self.memory = [None] * self.capacity
+    #     self.position = 0
+    #     self.num_elements = 0
+
+    # def push(self, experience):
+    #     # if len(self.memory) < self.capacity:
+    #     #     self.memory.append(None)
+    #     self.memory[self.position] = experience
+    #     self.position = (self.position + 1) % self.capacity
+    #     if self.num_elements < self.capacity:
+    #         self.num_elements += 1
+
+    # def sample(self, batch_size):
+    #     return random.sample(self.memory, batch_size)
+
+    # def get_num_elements(self):
+    #     return self.num_elements
 
 
 class ActionSelector(object):
@@ -321,26 +337,33 @@ if __name__ == "__main__":
         help="channel bandwidths file name; default is 'bandwidths.npy'",
         default='bandwidths.npy',
         type=str)
+    parser.add_argument(
+        "-B",
+        "--batch_size",
+        help="batch size; default is 1000",
+        default=1000,
+        type=int)
     args = parser.parse_args()
     train_video_trace = args.train_video_trace
     test_video_trace = args.test_video_trace
     channel_bandwidths = args.channel_bandwidths
+    batch_size = args.batch_size
 
     # initialize channel BWs and replay memory
     bws = np.load(channel_bandwidths)  # channel bandwdiths [bit/s]
-    memory = ReplayMemory(1000)
+    memory = ReplayMemory(MEMORY_SIZE)
 
     # training phase
     sss = np.load(train_video_trace)        # segment sizes [bit]
-    train_mean_sqs, train_mean_rewards = simulate_dash(sss, bws, memory, 'train')
+    train_mean_sqs, train_mean_rewards = simulate_dash(sss, bws, memory, 'train', batch_size)
 
     # testing phase
     sss = np.load(test_video_trace)        # segment sizes [bit]
-    test_mean_sqs, test_mean_rewards = simulate_dash(sss, bws, memory, 'test')
+    test_mean_sqs, test_mean_rewards = simulate_dash(sss, bws, memory, 'test', batch_size)
 
     # plot results
-    mean_sqs = np.concatenate((test_mean_sqs, train_mean_sqs), axis=None)
-    mean_rewards = np.concatenate((test_mean_rewards, train_mean_rewards), axis=None)
+    mean_sqs = np.concatenate((train_mean_sqs, test_mean_sqs), axis=None)
+    mean_rewards = np.concatenate((train_mean_rewards, test_mean_rewards), axis=None)
     fig, axs = plt.subplots(nrows=2, sharex=True)
     axs[0].plot(mean_rewards)
     axs[0].set_ylabel("Reward")

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2876fc53-ba4a-48a2-8c6b-810c7f7c71f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/d-dash.py" beforeDir="false" afterPath="$PROJECT_DIR$/d-dash.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/d-dash_FNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/d-dash_FNN.py" afterDir="false" />
     </list>
@@ -42,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/d-dash1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2891">
-              <caret line="269" column="16" lean-forward="true" selection-start-line="269" selection-start-column="16" selection-end-line="269" selection-end-column="16" />
+            <state relative-caret-position="203">
+              <caret line="157" column="14" selection-start-line="157" selection-start-column="14" selection-end-line="157" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -63,8 +61,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/d-dash_FNN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="278" column="52" lean-forward="true" selection-start-line="278" selection-start-column="52" selection-end-line="278" selection-end-column="52" />
+            <state relative-caret-position="214">
+              <caret line="195" lean-forward="true" selection-start-line="195" selection-end-line="195" />
               <folding>
                 <element signature="e#1074#1085#0" expanded="true" />
               </folding>
@@ -93,10 +91,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/d-dash.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="187" column="16" selection-start-line="187" selection-start-column="16" selection-end-line="187" selection-end-column="16" />
+            <state relative-caret-position="200">
+              <caret line="353" lean-forward="true" selection-start-line="353" selection-end-line="353" />
               <folding>
-                <element signature="e#1067#1078#0" expanded="true" />
+                <element signature="e#1074#1085#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -183,6 +181,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -209,7 +208,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -221,6 +219,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -402,12 +401,12 @@
       <workItem from="1591765719753" duration="14535000" />
       <workItem from="1591894516511" duration="14000" />
       <workItem from="1592533844008" duration="15049000" />
-      <workItem from="1592577069756" duration="4270000" />
+      <workItem from="1592577069756" duration="4721000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81854000" />
+    <option name="totallyTimeSpent" value="82305000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -420,10 +419,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6179002" visible="true" weight="0.15018316" />
-      <window_info id="Structure" order="1" sideWeight="0.38209984" side_tool="true" visible="true" weight="0.15018316" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6178011" visible="true" weight="0.15018316" />
+      <window_info id="Structure" order="1" sideWeight="0.38219896" side_tool="true" visible="true" weight="0.15018316" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32982457" />
@@ -433,12 +431,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32982457" />
       <window_info anchor="bottom" id="Docker" order="7" weight="0.32982457" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.4993895" visible="true" weight="0.32982457" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.33394384" side_tool="true" visible="true" weight="0.32046783" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50061053" side_tool="true" visible="true" weight="0.32982457" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.498779" weight="0.19883041" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.4981685" weight="0.32982457" />
-      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.66605616" visible="true" weight="0.32046783" />
+      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.66605616" weight="0.32046783" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -452,6 +450,32 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -462,7 +486,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/d-dash.py</url>
-          <line>300</line>
+          <line>286</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -477,12 +501,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/d-dash.py</url>
-          <line>296</line>
+          <line>283</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/d-dash.py</url>
-          <line>292</line>
+          <line>280</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
@@ -695,25 +719,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/d-dash.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="187" column="16" selection-start-line="187" selection-start-column="16" selection-end-line="187" selection-end-column="16" />
+        <state relative-caret-position="200">
+          <caret line="353" lean-forward="true" selection-start-line="353" selection-end-line="353" />
           <folding>
-            <element signature="e#1067#1078#0" expanded="true" />
+            <element signature="e#1074#1085#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/d-dash1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2891">
-          <caret line="269" column="16" lean-forward="true" selection-start-line="269" selection-start-column="16" selection-end-line="269" selection-end-column="16" />
+        <state relative-caret-position="203">
+          <caret line="157" column="14" selection-start-line="157" selection-start-column="14" selection-end-line="157" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/d-dash_FNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="278" column="52" lean-forward="true" selection-start-line="278" selection-start-column="52" selection-end-line="278" selection-end-column="52" />
+        <state relative-caret-position="214">
+          <caret line="195" lean-forward="true" selection-start-line="195" selection-end-line="195" />
           <folding>
             <element signature="e#1074#1085#0" expanded="true" />
           </folding>
