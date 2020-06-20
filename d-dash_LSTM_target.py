@@ -1,26 +1,11 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-##
-# @file     d-dash.py
-# @author   Kyeong Soo (Joseph) Kim <kyeongsoo.kim@gmail.com>
-# @date     2020-05-15
-#
-# @brief Baseline (simplied) implementation of D-DASH [1], a framework that
-#        combines deep learning and reinforcement learning techniques to
-#        optimize the quality of experience (QoE) of DASH, where the
-#        policy-network is implemented based on feedforward neural network
-#        (FNN) but without the target network and the replay memory.
-#        The current implementation is based on PyTorch reinforcement learning
-#        (DQN) tutorial [2].
-#
-# @remark [1] M. Gadaleta, F. Chiariotti, M. Rossi, and A. Zanella, “D-dash: A
-#         deep Q-learning framework for DASH video streaming,” IEEE Trans. on
-#         Cogn. Commun. Netw., vol. 3, no. 4, pp. 703–718, Dec. 2017.
-#         [2] PyTorch reinforcement (DQN) tutorial. Available online:
-#         https://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html
+# encoding: utf-8
 
-
-# import copy                     # TASK2: for target network
+# @author: Zhipeng Ye
+# @contact: Zhipeng.ye19@xjtlu.edu.cn
+# @file: d-dash_LSTM_target.py
+# @time: 2020-06-19 14:19
+# @desc:
 import math
 import random
 import numpy as np
@@ -30,20 +15,20 @@ import sys
 import torch
 from dataclasses import dataclass
 import copy
-
+import torch.nn as nn
 
 # global variables
 
 EPISODES = 300
 # - DQL
-CH_HISTORY = 2                  # number of channel capacity history samples
+CH_HISTORY = 1  # number of channel capacity history samples
 BATCH_SIZE = 1000
 EPS_START = 0.8
 EPS_END = 0.0
 LEARNING_RATE = 1e-4
 MEMORY_SIZE = 10000
 # - FFN
-N_I = 3 + CH_HISTORY            # input dimension (= state dimension)
+N_I = 3 + CH_HISTORY  # input dimension (= state dimension)
 N_H1 = 128
 N_H2 = 256
 N_O = 4
@@ -56,15 +41,49 @@ B_THR = 10
 T = 2  # segment duration
 TARGET_UPDATE = 20
 LAMBDA = 0.9
+# - LSTM
+INPUT_SIZE = 3 + CH_HISTORY
+HIDDEN_SIZE = 8
+NUM_LAYERS = 1
+OUPUT_SIZE = 4
 
 # set up matplotlib
 is_ipython = 'inline' in matplotlib.get_backend()
-plt.ion()                       # turn interactive mode on
+plt.ion()  # turn interactive mode on
 
 # set device
 if torch.cuda.is_available():
     print('GPU is ok!')
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
+# Define neural network
+class RNN(nn.Module):
+    def __init__(self):
+        super(RNN, self).__init__()
+
+        self.rnn = nn.LSTM(  # define LSTM class
+            input_size=INPUT_SIZE,  # 图片每行的数据像素点
+            hidden_size=HIDDEN_SIZE,  # rnn hidden unit
+            num_layers=NUM_LAYERS,  # 有几层 RNN layers
+            batch_first=True,  # input & output 会是以 batch size 为第一维度的特征集 e.g. (batch, time_step, input_size)
+        )
+
+        self.fc = nn.Linear(HIDDEN_SIZE, OUPUT_SIZE)  # 输出层
+
+    def forward(self, x):
+        self.rnn.flatten_parameters()
+        # x shape (batch, time_step, input_size)
+        # r_out shape (batch, time_step, output_size)
+        # h_n shape (n_layers, batch, hidden_size)   LSTM 有两个 hidden states, h_n 是分线, h_c 是主线
+        # h_c shape (n_layers, batch, hidden_size)
+        r_out, (h_n, h_c) = self.rnn(x, None)  # None 表示 hidden state 会用全0的 state
+
+        # 选取最后一个时间点的 r_out 输出
+        # 这里 r_out[:, -1, :] 的值也是 h_n 的值
+        # out = self.out(r_out[:, -1, :])
+        out = self.fc(r_out)
+        return out
 
 
 @dataclass
@@ -147,7 +166,7 @@ class ActionSelector(object):
     def action(self, state):
         if self.greedy_policy:
             with torch.no_grad():
-                return int(torch.argmax(policy_net(state.tensor().cuda(device))))
+                return int(torch.argmax(policy_net_lstm(state.tensor().view(-1, 1, N_I).cuda(device))))
         else:
             sample = random.random()
             x = 20 * (self.steps_done / self.num_segments) - 6.  # scaled s.t. -6 < x < 14
@@ -155,26 +174,28 @@ class ActionSelector(object):
             # self.steps_done += 1
             if sample > eps_threshold:
                 with torch.no_grad():
-                    return int(torch.argmax(policy_net(state.tensor().cuda(device))))
+                    return int(torch.argmax(policy_net_lstm(state.tensor().view(-1, 1, N_I).cuda(device))))
             else:
                 return random.randrange(self.num_actions)
 
 
 # policy-network based on FNN with 2 hidden layers
-policy_net = torch.nn.Sequential(
-    torch.nn.Linear(N_I, N_H1),
-    torch.nn.ReLU(),
-    torch.nn.Linear(N_H1, N_H2),
-    torch.nn.ReLU(),
-    torch.nn.Linear(N_H2, N_O),
-    torch.nn.Sigmoid()
-).to(device)
-optimizer = torch.optim.Adam(policy_net.parameters(), lr=LEARNING_RATE)
+# policy_net = torch.nn.Sequential(
+#     torch.nn.Linear(N_I, N_H1),
+#     torch.nn.ReLU(),
+#     torch.nn.Linear(N_H1, N_H2),
+#     torch.nn.ReLU(),
+#     torch.nn.Linear(N_H2, N_O),
+#     torch.nn.Sigmoid()
+# ).to(device)
+# optimizer = torch.optim.Adam(policy_net.parameters(), lr=LEARNING_RATE)
 
+policy_net_lstm = RNN().to(device)
+optimizer_lstm = torch.optim.Adam(policy_net_lstm.parameters(), lr=LEARNING_RATE)
 
 # TASK2: Implement target network
-target_net = copy.deepcopy(policy_net)
-target_net.load_state_dict(policy_net.state_dict())
+target_net = copy.deepcopy(policy_net_lstm)
+target_net.load_state_dict(policy_net_lstm.state_dict())
 target_net.eval()
 
 
@@ -249,22 +270,24 @@ def simulate_dash(sss, bws, memory, phase, batch_size):
                 continue
             experiences = memory.sample(batch_size)
             state_batch = torch.stack([experiences[i].state.tensor()
-                                       for i in range(batch_size)])
+                                       for i in range(batch_size)]).cuda(device)
             next_state_batch = torch.stack([experiences[i].next_state.tensor()
-                                            for i in range(batch_size)])
+                                            for i in range(batch_size)]).cuda(device)
             action_batch = torch.tensor([experiences[i].action
-                                         for i in range(batch_size)], dtype=torch.long)
+                                         for i in range(batch_size)], dtype=torch.long).cuda(device)
             reward_batch = torch.tensor([experiences[i].reward
                                          for i in range(batch_size)], dtype=torch.float32).cuda(device)
 
             # $Q(s_t, q_t|\bm{w}_t)$ in (13) in [1]
             # 1. policy_net generates a batch of Q(...) for all q values.
             # 2. columns of actions taken are selected using 'action_batch'.
-            state_action_values = policy_net(state_batch.cuda(device)).gather(1, action_batch.view(batch_size, -1).cuda(device))
+            state_Q_values = torch.squeeze(policy_net_lstm(state_batch.view(-1, batch_size, N_I).cuda(device))).cuda(device)
+            state_action_values = state_Q_values.gather(1, action_batch.view(batch_size, -1))
 
             # $\max_{q}\hat{Q}(s_{t+1},q|\bar{\bm{w}}_t$ in (13) in [1]
-            # TASK 2: Replace policy_net with target_net.
-            next_state_values = target_net(next_state_batch.cuda(device)).max(1)[0].detach().cuda(device)
+            # TODO: Replace policy_net with target_net.
+            target_values = torch.squeeze(target_net(next_state_batch.view(-1, batch_size, N_I).cuda(device))).cuda(device)
+            next_state_values = target_values.max(1)[0].detach()
 
             # expected Q values
             expected_state_action_values = reward_batch + (LAMBDA * next_state_values)
@@ -275,16 +298,16 @@ def simulate_dash(sss, bws, memory, phase, batch_size):
                             expected_state_action_values.unsqueeze(1))
 
             # optimize the model
-            optimizer.zero_grad()
+            optimizer_lstm.zero_grad()
             loss.backward()
-            for param in policy_net.parameters():
+            for param in policy_net_lstm.parameters():
                 param.grad.data.clamp_(-1, 1)
-            optimizer.step()
+            optimizer_lstm.step()
 
             # TASK2: Implement target network
             # # update the target network
             if t % TARGET_UPDATE == 0:
-                target_net.load_state_dict(policy_net.state_dict())
+                target_net.load_state_dict(policy_net_lstm.state_dict())
 
         # processing after each episode
         selector.increse_step_number()
@@ -298,6 +321,7 @@ def simulate_dash(sss, bws, memory, phase, batch_size):
 
 if __name__ == "__main__":
     import argparse
+
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--train_video_trace",
@@ -351,6 +375,6 @@ if __name__ == "__main__":
     axs[1].set_xlabel("Video Episode")
     axs[1].vlines(len(train_mean_rewards), *axs[1].get_ylim(), colors='red', linestyles='dotted')
     # input("Press ENTER to continue...")
-    plt.savefig('d-dash_FNN.pdf', format='pdf')
+    plt.savefig('d-dash_LSTM_target100.pdf', format='pdf')
     plt.show()
     plt.close('all')
