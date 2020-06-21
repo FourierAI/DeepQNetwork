@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2876fc53-ba4a-48a2-8c6b-810c7f7c71f4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2876fc53-ba4a-48a2-8c6b-810c7f7c71f4" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,7 +9,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/reinforcelearning$d_dash_LSTM.coverage" NAME="d-dash_LSTM Coverage Results" MODIFIED="1592711001358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/reinforcelearning$d_dash_LSTM.coverage" NAME="d-dash_LSTM Coverage Results" MODIFIED="1592742021869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/reinforcelearning$d_dash__3_.coverage" NAME="d-dash (3) Coverage Results" MODIFIED="1592546905970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/reinforcelearning$test.coverage" NAME="test Coverage Results" MODIFIED="1590815680596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/reinforcelearning$d_dash.coverage" NAME="d-dash Coverage Results" MODIFIED="1592534603270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -36,11 +34,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/d-dash_LSTM_target.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6048">
-              <caret line="261" column="29" selection-start-line="261" selection-start-column="29" selection-end-line="261" selection-end-column="29" />
+            <state relative-caret-position="189">
+              <caret line="280" column="23" lean-forward="true" selection-start-line="280" selection-start-column="23" selection-end-line="280" selection-end-column="23" />
+              <folding>
+                <element signature="e#167#178#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -48,7 +49,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/d-dash.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6432">
+            <state relative-caret-position="6600">
               <caret line="275" selection-start-line="275" selection-end-line="275" />
               <folding>
                 <element signature="e#1074#1085#0" expanded="true" />
@@ -57,14 +58,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/d-dash_LSTM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="301" column="15" selection-start-line="301" selection-start-column="15" selection-end-line="301" selection-end-column="15" />
+            <state relative-caret-position="371">
+              <caret line="307" column="37" selection-start-line="307" selection-start-column="37" selection-end-line="307" selection-end-column="37" />
               <folding>
                 <element signature="e#223#234#0" expanded="true" />
-                <marker date="1592719100154" expanded="true" signature="2513:3003" ph="..." />
               </folding>
             </state>
           </provider>
@@ -109,7 +109,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/d-dash_FNN_target.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="888">
+            <state relative-caret-position="1080">
               <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
               <folding>
                 <element signature="e#1074#1085#0" expanded="true" />
@@ -121,7 +121,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/d_dash_LSTM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
+            <state relative-caret-position="768">
               <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
               <folding>
                 <element signature="e#160#171#0" expanded="true" />
@@ -150,7 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ActionSelector</find>
       <find>sg_quality</find>
       <find>increse_step_number</find>
       <find>steps_done</find>
@@ -177,9 +176,10 @@
       <find>MEMORY_SIZE</find>
       <find>optimizer_lstm</find>
       <find>memory</find>
-      <find>target_net</find>
       <find>sqs</find>
       <find>policy_net_lstm</find>
+      <find>target</find>
+      <find>target_net</find>
     </findStrings>
     <replaceStrings>
       <replace>policy_net_lstm</replace>
@@ -416,11 +416,12 @@
       <workItem from="1592676327647" duration="995000" />
       <workItem from="1592707826271" duration="8978000" />
       <workItem from="1592739479949" duration="614000" />
+      <workItem from="1592741180003" duration="2030000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94948000" />
+    <option name="totallyTimeSpent" value="96978000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -433,14 +434,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.61403507" visible="true" weight="0.15567766" />
-      <window_info id="Structure" order="1" sideWeight="0.3859649" side_tool="true" visible="true" weight="0.15567766" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.61256546" visible="true" weight="0.15750916" />
+      <window_info id="Structure" order="1" sideWeight="0.38743454" side_tool="true" visible="true" weight="0.15750916" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32982457" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.497558" weight="0.32982457" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.497558" visible="true" weight="0.32982457" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6898657" weight="0.39298245" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -737,16 +737,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/d-dash_FNN.py" />
-    <entry file="file://$PROJECT_DIR$/d-dash_LSTM_target.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6048">
-          <caret line="261" column="29" selection-start-line="261" selection-start-column="29" selection-end-line="261" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/d-dash.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6432">
+        <state relative-caret-position="6600">
           <caret line="275" selection-start-line="275" selection-end-line="275" />
           <folding>
             <element signature="e#1074#1085#0" expanded="true" />
@@ -784,7 +777,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/d-dash_FNN_target.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="888">
+        <state relative-caret-position="1080">
           <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
           <folding>
             <element signature="e#1074#1085#0" expanded="true" />
@@ -794,7 +787,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/d_dash_LSTM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
+        <state relative-caret-position="768">
           <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
           <folding>
             <element signature="e#160#171#0" expanded="true" />
@@ -811,11 +804,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/d-dash_LSTM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="301" column="15" selection-start-line="301" selection-start-column="15" selection-end-line="301" selection-end-column="15" />
+        <state relative-caret-position="371">
+          <caret line="307" column="37" selection-start-line="307" selection-start-column="37" selection-end-line="307" selection-end-column="37" />
           <folding>
             <element signature="e#223#234#0" expanded="true" />
-            <marker date="1592719100154" expanded="true" signature="2513:3003" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/d-dash_LSTM_target.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="280" column="23" lean-forward="true" selection-start-line="280" selection-start-column="23" selection-end-line="280" selection-end-column="23" />
+          <folding>
+            <element signature="e#167#178#0" expanded="true" />
           </folding>
         </state>
       </provider>
