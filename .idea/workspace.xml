@@ -2,21 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2876fc53-ba4a-48a2-8c6b-810c7f7c71f4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FNN_100.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bandwidths.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bear.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bigbuckbunny.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/d-dash.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/d-dash.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/d-dash1.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/d-dash_FNN.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/d-dash_FNN.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/d_dash_LSTM.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/environment.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py37.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/d-dash_LSTM.py" beforeDir="false" afterPath="$PROJECT_DIR$/d-dash_LSTM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/d-dash_LSTM_target.py" beforeDir="false" afterPath="$PROJECT_DIR$/d-dash_LSTM_target.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/d_dash_FNN_target1000.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/d-dash_FNN_target1000.pdf" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/reinforcelearning$d_dash_LSTM.coverage" NAME="d_dash_LSTM Coverage Results" MODIFIED="1592565964376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/reinforcelearning$d_dash_LSTM.coverage" NAME="d-dash_LSTM Coverage Results" MODIFIED="1592711001358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/reinforcelearning$d_dash__3_.coverage" NAME="d-dash (3) Coverage Results" MODIFIED="1592546905970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/reinforcelearning$test.coverage" NAME="test Coverage Results" MODIFIED="1590815680596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/reinforcelearning$d_dash.coverage" NAME="d-dash Coverage Results" MODIFIED="1592534603270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -51,19 +43,83 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$USER_HOME$/Downloads/d-dash(2).py">
+        <entry file="file://$PROJECT_DIR$/d-dash_LSTM_target.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="758">
-              <caret line="198" column="10" selection-start-line="198" selection-end-line="198" selection-end-column="10" />
+            <state relative-caret-position="-402">
+              <caret line="223" column="20" lean-forward="true" selection-start-line="223" selection-start-column="20" selection-end-line="223" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/anaconda/anaconda3/envs/py37/lib/python3.7/site-packages/torch/nn/modules/rnn.py">
+        <entry file="file://$PROJECT_DIR$/d-dash_LSTM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13272">
-              <caret line="563" selection-start-line="563" selection-end-line="563" />
+            <state relative-caret-position="2964">
+              <caret line="241" column="19" selection-start-line="241" selection-start-column="19" selection-end-line="241" selection-end-column="19" />
+              <folding>
+                <element signature="e#223#234#0" expanded="true" />
+                <marker date="1592719100154" expanded="true" signature="2513:3003" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/anaconda/anaconda3/envs/py37/lib/python3.7/site-packages/torch/tensor.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="165" selection-start-line="165" selection-end-line="165" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/d-dash1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1354">
+              <caret line="159" column="16" lean-forward="true" selection-start-line="159" selection-start-column="16" selection-end-line="159" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/d-dash_discard.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="242" column="18" selection-start-line="242" selection-start-column="18" selection-end-line="242" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/d-dash_baseline.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-166">
+              <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/d-dash_FNN_target.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-6802">
+              <caret line="45" column="21" lean-forward="true" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+              <folding>
+                <element signature="e#1074#1085#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/d_dash_LSTM.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+              <folding>
+                <element signature="e#160#171#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,17 +170,19 @@
       <find>EPS_START</find>
       <find>T</find>
       <find>TODO</find>
-      <find>policy_net_lstm</find>
       <find>policy_lstm</find>
       <find>optimizer</find>
       <find>optimizer2</find>
-      <find>target_net</find>
       <find>policy_net</find>
-      <find>optimizer_lstm</find>
       <find>tensor</find>
-      <find>memory</find>
       <find>batch_size</find>
       <find>BATCH_SIZE</find>
+      <find>MEMORY_SIZE</find>
+      <find>optimizer_lstm</find>
+      <find>policy_net_lstm</find>
+      <find>memory</find>
+      <find>target_net</find>
+      <find>sqs</find>
     </findStrings>
     <replaceStrings>
       <replace>policy_net_lstm</replace>
@@ -145,6 +203,8 @@
         <option value="$USER_HOME$/Downloads/d-dash(2).py" />
         <option value="$PROJECT_DIR$/d-dash.py" />
         <option value="$PROJECT_DIR$/d-dash_FNN.py" />
+        <option value="$PROJECT_DIR$/d-dash_LSTM_target.py" />
+        <option value="$PROJECT_DIR$/d-dash_LSTM.py" />
       </list>
     </option>
   </component>
@@ -159,7 +219,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -171,6 +230,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -185,6 +245,9 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -201,29 +264,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.d_dash_LSTM">
-    <configuration name="d-dash (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="reinforcelearning" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/d-dash.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.d-dash_LSTM">
     <configuration name="d-dash (3)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="reinforcelearning" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -290,6 +331,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="d-dash_LSTM" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="reinforcelearning" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/d-dash_LSTM.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="d_dash_LSTM" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="reinforcelearning" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -314,11 +377,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.d-dash_LSTM" />
         <item itemvalue="Python.d_dash_LSTM" />
         <item itemvalue="Python.d-dash (3)" />
         <item itemvalue="Python.d-dash" />
         <item itemvalue="Python.d-dash1" />
-        <item itemvalue="Python.d-dash (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -353,12 +416,13 @@
       <workItem from="1591894516511" duration="14000" />
       <workItem from="1592533844008" duration="15049000" />
       <workItem from="1592577069756" duration="6777000" />
-      <workItem from="1592676327647" duration="798000" />
+      <workItem from="1592676327647" duration="995000" />
+      <workItem from="1592707826271" duration="8444000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85159000" />
+    <option name="totallyTimeSpent" value="93800000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -371,9 +435,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.61637425" visible="true" weight="0.15201466" />
-      <window_info id="Structure" order="1" sideWeight="0.38362575" side_tool="true" visible="true" weight="0.15201466" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6152047" visible="true" weight="0.15384616" />
+      <window_info id="Structure" order="1" sideWeight="0.3847953" side_tool="true" visible="true" weight="0.15384616" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32982457" />
@@ -386,7 +451,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4981685" weight="0.32982457" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50183153" side_tool="true" weight="0.32982457" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.72649574" weight="0.19883041" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.72649574" weight="0.34502923" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.496337" weight="0.32982457" />
       <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.6630037" weight="0.32046783" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -476,6 +541,11 @@
           <url>file://$USER_HOME$/Desktop/d-dash.py</url>
           <line>259</line>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/Downloads/d-dash(2).py</url>
+          <line>176</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -650,6 +720,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/py37.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/d-dash(2).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="181" column="31" lean-forward="true" selection-start-line="181" selection-start-column="31" selection-end-line="181" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/anaconda/anaconda3/envs/py37/lib/python3.7/site-packages/torch/nn/modules/rnn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13272">
@@ -664,13 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py37.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda/anaconda3/envs/py37/lib/python3.7/dataclasses.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23016">
@@ -678,37 +755,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/d_dash_LSTM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-          <folding>
-            <element signature="e#160#171#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/d-dash1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="160" column="10" selection-start-line="160" selection-start-column="10" selection-end-line="160" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/d-dash_FNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="296">
+          <caret line="162" column="16" lean-forward="true" selection-start-line="162" selection-start-column="16" selection-end-line="162" selection-end-column="16" />
           <folding>
             <element signature="e#1074#1085#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/d-dash(2).py">
+    <entry file="file://$PROJECT_DIR$/d-dash_FNN_target.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="758">
-          <caret line="198" column="10" selection-start-line="198" selection-end-line="198" selection-end-column="10" />
+        <state relative-caret-position="-6802">
+          <caret line="45" column="21" lean-forward="true" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+          <folding>
+            <element signature="e#1074#1085#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/d_dash_LSTM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+          <folding>
+            <element signature="e#160#171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/d-dash_discard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="242" column="18" selection-start-line="242" selection-start-column="18" selection-end-line="242" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/d-dash_baseline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-166">
+          <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/d-dash1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1354">
+          <caret line="159" column="16" lean-forward="true" selection-start-line="159" selection-start-column="16" selection-end-line="159" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/anaconda3/envs/py37/lib/python3.7/site-packages/torch/tensor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="165" selection-start-line="165" selection-end-line="165" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/d-dash_LSTM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2964">
+          <caret line="241" column="19" selection-start-line="241" selection-start-column="19" selection-end-line="241" selection-end-column="19" />
+          <folding>
+            <element signature="e#223#234#0" expanded="true" />
+            <marker date="1592719100154" expanded="true" signature="2513:3003" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/d-dash_LSTM_target.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-402">
+          <caret line="223" column="20" lean-forward="true" selection-start-line="223" selection-start-column="20" selection-end-line="223" selection-end-column="20" />
         </state>
       </provider>
     </entry>

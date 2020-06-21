@@ -26,7 +26,7 @@ BATCH_SIZE = 1000
 EPS_START = 0.8
 EPS_END = 0.0
 LEARNING_RATE = 1e-4
-MEMORY_SIZE = 10000
+MEMORY_SIZE = 500
 # - FFN
 N_I = 3 + CH_HISTORY  # input dimension (= state dimension)
 N_H1 = 128
@@ -62,25 +62,23 @@ class RNN(nn.Module):
     def __init__(self):
         super(RNN, self).__init__()
 
-        self.rnn = nn.LSTM(  # define LSTM class
-            input_size=INPUT_SIZE,  # 图片每行的数据像素点
-            hidden_size=HIDDEN_SIZE,  # rnn hidden unit
-            num_layers=NUM_LAYERS,  # 有几层 RNN layers
-            batch_first=True,  # input & output 会是以 batch size 为第一维度的特征集 e.g. (batch, time_step, input_size)
+        self.rnn = nn.LSTM(
+            input_size=INPUT_SIZE,
+            hidden_size=HIDDEN_SIZE,
+            num_layers=NUM_LAYERS,
+            batch_first=True,
         )
 
-        self.fc = nn.Linear(HIDDEN_SIZE, OUPUT_SIZE)  # 输出层
+        self.fc = nn.Linear(HIDDEN_SIZE, OUPUT_SIZE)
 
     def forward(self, x):
         self.rnn.flatten_parameters()
         # x shape (batch, time_step, input_size)
         # r_out shape (batch, time_step, output_size)
-        # h_n shape (n_layers, batch, hidden_size)   LSTM 有两个 hidden states, h_n 是分线, h_c 是主线
+        # h_n shape (n_layers, batch, hidden_size)
         # h_c shape (n_layers, batch, hidden_size)
-        r_out, (h_n, h_c) = self.rnn(x, None)  # None 表示 hidden state 会用全0的 state
+        r_out, (h_n, h_c) = self.rnn(x, None)
 
-        # 选取最后一个时间点的 r_out 输出
-        # 这里 r_out[:, -1, :] 的值也是 h_n 的值
         # out = self.out(r_out[:, -1, :])
         out = self.fc(r_out)
         return out
@@ -126,6 +124,7 @@ class Experience:
 
 class ReplayMemory(object):
     """Replay memory based on a list"""
+
     def __init__(self, capacity):
         self.capacity = capacity
         self.memory = []
@@ -142,6 +141,7 @@ class ReplayMemory(object):
 
     def get_num_elements(self):
         return len(self.memory)
+
 
 class ActionSelector(object):
     """
@@ -166,7 +166,8 @@ class ActionSelector(object):
     def action(self, state):
         if self.greedy_policy:
             with torch.no_grad():
-                return int(torch.argmax(policy_net_lstm(state.tensor().view(-1, 1, N_I).cuda(device))))
+                output = policy_net_lstm(state.tensor().view(-1, 1, N_I).cuda(device))
+                return int(torch.argmax(output[:, -1, :]))
         else:
             sample = random.random()
             x = 20 * (self.steps_done / self.num_segments) - 6.  # scaled s.t. -6 < x < 14
@@ -174,21 +175,10 @@ class ActionSelector(object):
             # self.steps_done += 1
             if sample > eps_threshold:
                 with torch.no_grad():
-                    return int(torch.argmax(policy_net_lstm(state.tensor().view(-1, 1, N_I).cuda(device))))
+                    output = policy_net_lstm(state.tensor().view(-1, 1, N_I).cuda(device))
+                    return int(torch.argmax(output[:, -1, :]))
             else:
                 return random.randrange(self.num_actions)
-
-
-# policy-network based on FNN with 2 hidden layers
-# policy_net = torch.nn.Sequential(
-#     torch.nn.Linear(N_I, N_H1),
-#     torch.nn.ReLU(),
-#     torch.nn.Linear(N_H1, N_H2),
-#     torch.nn.ReLU(),
-#     torch.nn.Linear(N_H2, N_O),
-#     torch.nn.Sigmoid()
-# ).to(device)
-# optimizer = torch.optim.Adam(policy_net.parameters(), lr=LEARNING_RATE)
 
 policy_net_lstm = RNN().to(device)
 optimizer_lstm = torch.optim.Adam(policy_net_lstm.parameters(), lr=LEARNING_RATE)
@@ -210,7 +200,7 @@ def simulate_dash(sss, bws, memory, phase, batch_size):
     elif phase == 'test':
         selector = ActionSelector(num_qualities, num_segments, greedy_policy=True)
     else:
-        sys.exit(phase+" is not supported.")
+        sys.exit(phase + " is not supported.")
 
     ##########
     # training
@@ -219,43 +209,43 @@ def simulate_dash(sss, bws, memory, phase, batch_size):
     mean_sqs = np.empty(num_episodes)  # mean segment qualities
     mean_rewards = np.empty(num_episodes)  # mean rewards
     for i_episode in range(num_episodes):
-        sqs = np.empty(num_segments-CH_HISTORY)
-        rewards = np.empty(num_segments-CH_HISTORY)
+        sqs = np.empty(num_segments - CH_HISTORY)
+        rewards = np.empty(num_segments - CH_HISTORY)
 
         # initialize the state
         sg_quality = random.randrange(num_qualities)  # random action
         state = State(
             sg_quality=sg_quality,
-            sg_size=sss[CH_HISTORY-1, sg_quality],
+            sg_size=sss[CH_HISTORY - 1, sg_quality],
             buffer=T,
             ch_history=bws[0:CH_HISTORY]
         )
         for t in range(CH_HISTORY, num_segments):
             sg_quality = selector.action(state)
-            sqs[t-CH_HISTORY] = sg_quality
+            sqs[t - CH_HISTORY] = sg_quality
 
             # update the state
             tau = sss[t, sg_quality] / bws[t]
-            buffer_next = T - max(0, state.buffer-tau)
+            buffer_next = T - max(0, state.buffer - tau)
             next_state = State(
                 sg_quality=sg_quality,
                 sg_size=sss[t, sg_quality],
                 buffer=buffer_next,
-                ch_history=bws[t-CH_HISTORY+1:t+1]
+                ch_history=bws[t - CH_HISTORY + 1:t + 1]
             )
 
             # calculate reward (i.e., (4) in [1]).
-            downloading_time = next_state.sg_size/next_state.ch_history[-1]
-            rebuffering = max(0, downloading_time-state.buffer)
-            rewards[t-CH_HISTORY] = next_state.sg_quality \
-                - BETA*abs(next_state.sg_quality-state.sg_quality) \
-                - GAMMA*rebuffering - DELTA*max(0, B_THR-next_state.buffer)**2
+            downloading_time = next_state.sg_size / next_state.ch_history[-1]
+            rebuffering = max(0, downloading_time - state.buffer)
+            rewards[t - CH_HISTORY] = next_state.sg_quality \
+                                      - BETA * abs(next_state.sg_quality - state.sg_quality) \
+                                      - GAMMA * rebuffering - DELTA * max(0, B_THR - next_state.buffer) ** 2
 
             # store the experience in the replay memory
             experience = Experience(
                 state=state,
                 action=sg_quality,
-                reward=rewards[t-CH_HISTORY],
+                reward=rewards[t - CH_HISTORY],
                 next_state=next_state
             )
             memory.push(experience)
@@ -281,12 +271,14 @@ def simulate_dash(sss, bws, memory, phase, batch_size):
             # $Q(s_t, q_t|\bm{w}_t)$ in (13) in [1]
             # 1. policy_net generates a batch of Q(...) for all q values.
             # 2. columns of actions taken are selected using 'action_batch'.
-            state_Q_values = torch.squeeze(policy_net_lstm(state_batch.view(-1, batch_size, N_I).cuda(device))).cuda(device)
+            state_Q_values = torch.squeeze(policy_net_lstm(state_batch.view(-1, batch_size, N_I).cuda(device))).cuda(
+                device)
             state_action_values = state_Q_values.gather(1, action_batch.view(batch_size, -1))
 
             # $\max_{q}\hat{Q}(s_{t+1},q|\bar{\bm{w}}_t$ in (13) in [1]
             # TODO: Replace policy_net with target_net.
-            target_values = torch.squeeze(target_net(next_state_batch.view(-1, batch_size, N_I).cuda(device))).cuda(device)
+            target_values = torch.squeeze(target_net(next_state_batch.view(-1, batch_size, N_I).cuda(device))).cuda(
+                device)
             next_state_values = target_values.max(1)[0].detach()
 
             # expected Q values
@@ -356,11 +348,11 @@ if __name__ == "__main__":
     memory = ReplayMemory(MEMORY_SIZE)
 
     # training phase
-    sss = np.load(train_video_trace)        # segment sizes [bit]
+    sss = np.load(train_video_trace)  # segment sizes [bit]
     train_mean_sqs, train_mean_rewards = simulate_dash(sss, bws, memory, 'train', batch_size)
 
     # testing phase
-    sss = np.load(test_video_trace)        # segment sizes [bit]
+    sss = np.load(test_video_trace)  # segment sizes [bit]
     test_mean_sqs, test_mean_rewards = simulate_dash(sss, bws, memory, 'test', batch_size)
 
     # plot results
@@ -375,6 +367,6 @@ if __name__ == "__main__":
     axs[1].set_xlabel("Video Episode")
     axs[1].vlines(len(train_mean_rewards), *axs[1].get_ylim(), colors='red', linestyles='dotted')
     # input("Press ENTER to continue...")
-    plt.savefig('d-dash_LSTM_target100.pdf', format='pdf')
+    plt.savefig('d-dash_LSTM_target.pdf', format='pdf')
     plt.show()
     plt.close('all')

@@ -180,7 +180,8 @@ class ActionSelector(object):
     def action(self, state):
         if self.greedy_policy:
             with torch.no_grad():
-                return int(torch.argmax(policy_net_lstm(state.tensor().view(-1, 1, INPUT_SIZE))))
+                output = policy_net_lstm(state.tensor().view(-1, 1, N_I))
+                return int(torch.argmax(output[:, -1, :]))
         else:
             sample = random.random()
             x = 20 * (self.steps_done / self.num_segments) - 6.  # scaled s.t. -6 < x < 14
@@ -188,7 +189,8 @@ class ActionSelector(object):
             # self.steps_done += 1
             if sample > eps_threshold:
                 with torch.no_grad():
-                    return int(torch.argmax(policy_net_lstm(state.tensor().view(-1, 1, INPUT_SIZE))))
+                    output = policy_net_lstm(state.tensor().view(-1, 1, N_I))
+                    return int(torch.argmax(output[:, -1, :]))
             else:
                 return random.randrange(self.num_actions)
 
@@ -230,7 +232,7 @@ def simulate_dash(sss, bws, memory, phase, batch_size):
     ##########
     # training
     ##########
-    num_episodes = 300
+    num_episodes = 50
     mean_sqs = np.empty(num_episodes)  # mean segment qualities
     mean_rewards = np.empty(num_episodes)  # mean rewards
     for i_episode in range(num_episodes):
